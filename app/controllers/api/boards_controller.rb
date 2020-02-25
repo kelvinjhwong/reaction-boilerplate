@@ -4,6 +4,14 @@ class Api::BoardsController < ApplicationController
     render :index
   end
 
+  def show
+    begin
+      @board = Board.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      render_404
+    end
+  end
+
   def create
     @board = Board.new(board_params)
 

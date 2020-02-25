@@ -18,6 +18,8 @@ class Api::BoardsController < ApplicationController
     render 'api/shared/error', status: :unprocessable_entity
   end
 
+  # test
+
   def show
     return {
             "id": 1,

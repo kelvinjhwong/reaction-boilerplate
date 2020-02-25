@@ -19,7 +19,7 @@ class Api::BoardsController < ApplicationController
   end
 
   def show
-    return {
+    render json: '{
             "id": 1,
             "title": "Web dev",
             "created_at": "2017-10-04T05:57:02.777Z",
@@ -50,7 +50,7 @@ class Api::BoardsController < ApplicationController
                 ]
               }
             ]
-          }
+          }'
   end
 
   private

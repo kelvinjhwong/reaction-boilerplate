@@ -10,8 +10,8 @@ json.lists(@board.lists) do |list|
     json.labels card.labels
     json.description card.description
     json.list_id card.list_id
-    json.board_id card.board_id
+    # json.board_id card.board_id
     json.position card.position
-    json.comments_count card.comments_count
+    # json.comments_count card.comments_count
   end
 end

@@ -3,7 +3,9 @@ import List from "./List";
 
 const ListWrapper = props => (
   <div class="list-wrapper">
-    <List />
+    <div class="list-background">
+      <List />
+    </div>
   </div>
 );
 

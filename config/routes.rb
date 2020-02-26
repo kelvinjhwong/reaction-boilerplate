@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'home#index'
+  # root to: 'home#index'
 
   namespace :api do
     resources :boards, only: [:index, :show, :create]
@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   get '/ui/move_card_popover', to: 'ui#move_card_popover'
   get '/ui/copy_card_popover', to: 'ui#copy_card_popover'
   get '/ui', to: 'ui#index'
+
+  get '/boards/1', to: 'home#index'
 end

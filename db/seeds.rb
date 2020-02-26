@@ -8,12 +8,17 @@
 
 Board.destroy_all
 
-board1 = Board.create({title: "First board"})
-board2 = Board.create({title: "Second board"})
+board1 = Board.create(title: "First board")
 
-list1 = List.create({title: "First list", board_id: 1})
+list1 = List.create(title: "List 1", board: board1)
+list2 = List.create(title: "List 2", board: board1)
 
-card1 = Card.create({title: "First card", list: list1})
+card1 = Card.create(title: "Card 1", list: list1)
+card2 = Card.create(title: "Card 2", list: list1)
+
+card3 = Card.create(title: "Card 3", list: list2)
+card4 = Card.create(title: "Card 4", list: list2)
+card5 = Card.create(title: "Card 5", list: list2)
 
 # '{
 #   "id": 1,

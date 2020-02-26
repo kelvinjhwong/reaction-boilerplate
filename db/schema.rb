@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_173722) do
+ActiveRecord::Schema.define(version: 2020_02_26_193705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,11 +28,8 @@ ActiveRecord::Schema.define(version: 2020_02_25_173722) do
     t.string "labels", default: [], array: true
     t.text "description"
     t.decimal "position"
-    t.integer "comments_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "board_id"
-    t.index ["board_id"], name: "index_cards_on_board_id"
     t.index ["list_id"], name: "index_cards_on_list_id"
   end
 

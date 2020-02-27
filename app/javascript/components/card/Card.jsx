@@ -1,25 +1,24 @@
 import React from "react";
 
 const Card = props => (
-  <div class="card-background">
-    <div class="card ">
-      <i class="edit-toggle edit-icon sm-icon"></i>
-      <div class="card-info">
-        <div class="card-label green colorblindable"></div>
-        <div class="card-label yellow colorblindable"></div>
-        <div class="card-label red colorblindable"></div>
-        <div class="card-label orange colorblindable"></div>
-        <div class="card-label blue colorblindable"></div>
-        <div class="card-label purple colorblindable"></div>
+  <div className="card-background">
+    <div className="card ">
+      <i className="edit-toggle edit-icon sm-icon"></i>
+      <div className="card-info">
+        <div className="card-label green colorblindable"></div>
+        <div className="card-label yellow colorblindable"></div>
+        <div className="card-label red colorblindable"></div>
+        <div className="card-label orange colorblindable"></div>
+        <div className="card-label blue colorblindable"></div>
+        <div className="card-label purple colorblindable"></div>
         <p>
-          Cards do many cool things. Click on this card to open it and learn
-          more...
+          { props.card.title }
         </p>
       </div>
-      <div class="card-icons">
-        <i class="clock-icon sm-icon overdue-recent completed">Aug 4</i>
-        <i class="description-icon sm-icon"></i>
-        <i class="comment-icon sm-icon"></i>
+      <div className="card-icons">
+        <i className="clock-icon sm-icon overdue-recent completed">{ props.card.due_date }</i>
+        <i className="description-icon sm-icon"></i>
+        <i className="comment-icon sm-icon"></i>
       </div>
     </div>
   </div>

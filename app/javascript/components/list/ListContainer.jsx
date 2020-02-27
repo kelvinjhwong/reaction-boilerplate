@@ -1,5 +1,5 @@
 import React from "react";
-import ListWrapper from "./ListWrapper";
+import ExistingListsContainer from "./ExistingListsContainer";
 import { connect } from "react-redux";
 import * as actions from "../../actions/BoardActions";
 
@@ -12,18 +12,16 @@ ListContainer
 */
 
 const ListContainer = props => (
-  <div id="list-container" class="list-container">
-    <div id="existing-lists" class="existing-lists">
-      <ListWrapper />
-      <ListWrapper />
-      <ListWrapper />
+  <div id="list-container" className="list-container">
+    <div id="existing-lists" className="existing-lists">
+      <ExistingListsContainer boardId={props.boardId} />
     </div>
-    <div id="new-list" class="new-list">
+    <div id="new-list" className="new-list">
       <span>Add a list...</span>
       <input type="text" placeholder="Add a list..." />
       <div>
-        <input type="submit" class="button" value="Save" />
-        <i class="x-icon icon"></i>
+        <input type="submit" className="button" value="Save" />
+        <i className="x-icon icon"></i>
       </div>
     </div>
   </div>

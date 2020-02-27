@@ -1,12 +1,12 @@
 import React from "react";
-import Card from "./Card";
+import Cards from "./Cards";
+import { connect } from 'react-redux';
 
-const CardsContainer = props => (
-  <div id="cards-container" data-id="list-1-cards">
-    <Card />
-    <Card />
-    <Card />
-  </div>
-);
+const mapStateToProps = (state, ownProps) => {
+	console.log("state.cards[0]: " + state.cards[0])
+  return {
+    cards: state.cards.filter(card => card.list_id === Number(ownProps.listId)),
+  };
+};
 
-export default CardsContainer;
+export default connect(mapStateToProps, null)(Cards);

@@ -1,14 +1,13 @@
 import React from 'react';
 import CardsContainer from '../card/CardsContainer';
+import ListTitleContainer from './ListTitleContainer';
 
 const List = (props) => (
   <div className='list-wrapper'>
     <div className='list-background'>
       <div className='list'>
         <a className='more-icon sm-icon' href=''></a>
-        <div>
-          <p className='list-title'>{props.list.title}</p>
-        </div>
+        <ListTitleContainer currentListTitle={props.list.title} />
         <div className='add-dropdown add-top'>
           <div className='card'></div>
           <a className='button'>Add</a>

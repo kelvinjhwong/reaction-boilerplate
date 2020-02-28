@@ -28,7 +28,6 @@ const apiClient = {
   },
 
   getBoard: function(id, callback) {
-    console.log('id: ' + id);
     return axios
       .get(`${routes.BOARDS_INDEX_URL}/${id}.json`)
       .then(unwrapData)
@@ -46,7 +45,7 @@ const apiClient = {
 
   createList: function(list, callback) {
     return axios
-      .post(routes.CREATE_LIST_URL, { list })
+      .post(routes.CREATE_LIST_URL, list)
       .then(unwrapData)
       .then(callback)
       .catch(logError);

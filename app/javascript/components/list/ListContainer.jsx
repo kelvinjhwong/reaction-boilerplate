@@ -15,7 +15,7 @@ ListContainer
 const ListContainer = (props) => (
   <div id='list-container' className='list-container'>
     <ExistingListsContainer boardId={props.boardId} />
-    <NewListContainer />
+    <NewListContainer boardId={props.boardId} />
   </div>
 );
 

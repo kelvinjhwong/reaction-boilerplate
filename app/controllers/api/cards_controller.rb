@@ -25,16 +25,3 @@ class Api::CardsController < ApplicationController
          :description, :position)
   end
 end
-
-
-# create_table "cards", force: :cascade do |t|
-#   t.bigint "list_id"
-#   t.string "title"
-#   t.datetime "due_date"
-#   t.string "labels", default: [], array: true
-#   t.text "description"
-#   t.decimal "position"
-#   t.datetime "created_at", precision: 6, null: false
-#   t.datetime "updated_at", precision: 6, null: false
-#   t.index ["list_id"], name: "index_cards_on_list_id"
-# end

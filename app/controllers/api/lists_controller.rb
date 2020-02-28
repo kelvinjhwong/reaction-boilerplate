@@ -13,22 +13,19 @@ class Api::ListsController < ApplicationController
     render 'api/shared/error', status: :unprocessable_entity
   end
 
-  # def update
-  #   begin
-  #     @card = Card.find_by(id: params[:id])
+  def update
+    begin
+      @list = List.find_by(id: params[:id])
 
-  #     params[:list_id] ? @card.list_id = params[:list_id] : nil
-  #     params[:title] ? @card.title = params[:title] : nil
-  #     params[:due_date] ? @card.due_date = params[:due_date] : nil
-  #     params[:labels] ? @card.labels = params[:labels] : nil
-  #     params[:description] ? @card.description = params[:description] : nil
-  #     params[:position] ? @card.position = params[:position] : nil
+      list_params[:board_id] ? @list.list_id = list_params[:list_id] : nil
+      list_params[:title] ? @list.title = list_params[:title] : nil
+      list_params[:position] ? @list.position = list_params[:position] : nil
 
-  #     @card.save
-  #   rescue ActiveRecord::RecordNotFound
-  #     render_404
-  #   end
-  # end
+      @list.save
+    rescue ActiveRecord::RecordNotFound
+      render_404
+    end
+  end
 
   private
 

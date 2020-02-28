@@ -17,7 +17,7 @@ class Api::ListsController < ApplicationController
     begin
       @list = List.find_by(id: params[:id])
 
-      list_params[:board_id] ? @list.list_id = list_params[:list_id] : nil
+      list_params[:board_id] ? @list.board_id = list_params[:board_id] : nil
       list_params[:title] ? @list.title = list_params[:title] : nil
       list_params[:position] ? @list.position = list_params[:position] : nil
 

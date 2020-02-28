@@ -1,6 +1,6 @@
 import React from 'react';
 import ExistingListsContainer from './ExistingListsContainer';
-import NewList from './NewList';
+import NewListContainer from './NewListContainer';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/BoardActions';
 
@@ -15,7 +15,7 @@ ListContainer
 const ListContainer = (props) => (
   <div id='list-container' className='list-container'>
     <ExistingListsContainer boardId={props.boardId} />
-    <NewList />
+    <NewListContainer />
   </div>
 );
 

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :boards, only: [:index, :show, :create]
+    resources :cards, only: [:update]
   end
 
   get '/ui/all_boards', to: 'ui#all_boards'

@@ -1,8 +1,6 @@
 import React from 'react';
 import ExistingListsContainer from './ExistingListsContainer';
 import NewListContainer from './NewListContainer';
-import { connect } from 'react-redux';
-import * as actions from '../../actions/BoardActions';
 
 /*
 ListContainer
@@ -12,11 +10,11 @@ ListContainer
         Card (presentational)
 */
 
-const ListContainer = (props) => (
+const ListsContainer = (props) => (
   <div id='list-container' className='list-container'>
     <ExistingListsContainer boardId={props.boardId} />
     <NewListContainer boardId={props.boardId} />
   </div>
 );
 
-export default ListContainer;
+export default ListsContainer;

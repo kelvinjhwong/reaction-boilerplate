@@ -3,19 +3,43 @@ import React, { Component } from 'react';
 class ListTitle extends Component {
   state = {
     editingListTitle: false,
-    newListTitle: this.props.currentListTitle,
+    newListTitle: this.props.listTitle,
+  };
+
+  handleTitleClick = () => {
+    this.setState({
+      editingListTitle: true,
+    });
+  };
+
+  handleInput = (e) => {
+    this.setState({
+      newListTitle: e.target.value,
+    });
+  };
+
+  handleUpdateListTitle = () => {
+    const newListTitle = this.state.newListTitle;
+    if (newListTitle !== this.props.listTitle) {
+      this.props.onUpdateListTitle(newListTitle, () => {
+        this.setState({
+          newListTitle: this.props.listTitle,
+        });
+      });
+    }
   };
 
   render() {
     return (
       <div>
-        <p className='list-title'>{this.props.currentListTitle}</p>
-        {/* <input
+        <input
           type='text'
-          class='list-title'
-          value='List title during editing'
-          autofocus='true'
-        /> */}
+          className='list-title'
+          value={this.state.newListTitle}
+          autoFocus={this.state.editingListTitle}
+          onChange={this.handleInput}
+          onBlur={this.handleUpdateListTitle}
+        />
       </div>
     );
   }

@@ -7,7 +7,10 @@ const List = (props) => (
     <div className='list-background'>
       <div className='list'>
         <a className='more-icon sm-icon' href=''></a>
-        <ListTitleContainer currentListTitle={props.list.title} />
+        <ListTitleContainer
+          listId={props.list.id}
+          listTitle={props.list.title}
+        />
         <div className='add-dropdown add-top'>
           <div className='card'></div>
           <a className='button'>Add</a>

@@ -20,7 +20,11 @@ class ListTitle extends Component {
 
   handleUpdateListTitle = () => {
     const newListTitle = this.state.newListTitle;
-    if (newListTitle !== this.props.listTitle) {
+    if (newListTitle === '') {
+      this.setState({
+        newListTitle: this.props.listTitle,
+      });
+    } else if (newListTitle !== this.props.listTitle) {
       this.props.onUpdateListTitle(newListTitle, () => {
         this.setState({
           newListTitle: this.props.listTitle,

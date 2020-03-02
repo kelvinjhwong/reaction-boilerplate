@@ -66,10 +66,32 @@ export const createList = (list, callback) => {
     dispatch(createListRequest());
     apiClient.createList(list, (newList) => {
       dispatch(createListSuccess(newList));
-    });
 
-    if (callback) {
-      callback(newList);
-    }
+      if (callback) {
+        callback(newList);
+      }
+    });
+  };
+};
+
+export const updateListRequest = () => ({
+  type: types.UPDATE_LIST_REQUEST,
+});
+
+export const updateListSuccess = (list) => ({
+  type: types.UPDATE_LIST_SUCCESS,
+  list,
+});
+
+export const updateList = (listId, list, callback) => {
+  return (dispatch) => {
+    dispatch(updateListRequest());
+    apiClient.updateList(listId, list, (updatedList) => {
+      dispatch(updateListSuccess(updatedList));
+
+      if (callback) {
+        callback(updatedList);
+      }
+    });
   };
 };

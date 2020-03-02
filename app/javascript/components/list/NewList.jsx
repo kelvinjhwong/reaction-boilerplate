@@ -22,11 +22,11 @@ class NewList extends Component {
     const newListTitle = this.state.newListTitle;
 
     if (newListTitle !== '') {
-      this.props.onCreateNewList(newListTitle);
-
-      this.setState({
-        editingListName: false,
-        newListTitle: '',
+      this.props.onCreateNewList(newListTitle, () => {
+        this.setState({
+          editingListName: false,
+          newListTitle: '',
+        });
       });
     }
   };

@@ -27,29 +27,34 @@ class Api::CardsController < ApplicationController
     render '/shared/error', status: :unprocessable_entity
   end
 
-  # def update
-  #   begin
-  #     @card = Card.find(params[:id])
+  def update
+    @card = Card.find(params[:id])
 
-  #     params[:list_id] ? @card.list_id = params[:list_id] : nil
-  #     params[:title] ? @card.title = params[:title] : nil
-  #     params[:due_date] ? @card.due_date = params[:due_date] : nil
-  #     params[:labels] ? @card.labels = params[:labels] : nil
-  #     params[:description] ? @card.description = params[:description] : nil
-  #     params[:position] ? @card.position = params[:position] : nil
+    params[:list_id] ? @card.list_id = params[:list_id] : nil
+    params[:title] ? @card.title = params[:title] : nil
+    params[:due_date] ? @card.due_date = params[:due_date] : nil
+    params[:labels] ? @card.labels = params[:labels] : nil
+    params[:description] ? @card.description = params[:description] : nil
+    params[:position] ? @card.position = params[:position] : nil
 
-  #     @card.save
-  #   rescue ActiveRecord::RecordNotFound
-  #     render_404
-  #   rescue ActionController::ParameterMissing
-  #     @error = "Invalid data provided: must specify a card and at least one attribute to update"
-  #     render 'shared/error', status: :unprocessable_entity
-  #   end
-  # end
+    @card.save
+  rescue ActiveRecord::RecordNotFound
+    @error = 'A card cannot be found with this id.'
+    render 'shared/error', status: :not_found
+  rescue ActionController::ParameterMissing
+    @error = "Invalid data provided: must specify a card and at least one attribute to update"
+    render 'shared/error', status: :unprocessable_entity
+  end
 
   private
 
   def card_params
     params.require(:card).permit(:title)
+  end
+
+  def update_card_params
+    params.require(:card).permit(
+      :title, :list_id, :position, :description, :archived, :due_date, :completed, :labels
+    )
   end
 end

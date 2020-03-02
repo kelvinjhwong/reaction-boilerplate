@@ -1,17 +1,17 @@
 class Api::ListsController < ApplicationController
   def create
-    @board = Board.find(params[:board_id])
-    @list = List.new(list_params.merge(board: @board))
+    board = Board.find(params[:board_id])
+    @list = List.new(list_params.merge(board: board))
 
     if @list.save
       render :create, status: :created
     else
       @error = @list.errors.full_messages.join(', ')
-      render 'api/shared/error', status: :unprocessable_entity
+      render 'shared/error', status: :unprocessable_entity
     end
   rescue ActionController::ParameterMissing
     @error = "Invalid list data provided"
-    render 'api/shared/error', status: :unprocessable_entity
+    render 'shared/error', status: :unprocessable_entity
   rescue ActiveRecord::RecordNotFound
     render_404
   end

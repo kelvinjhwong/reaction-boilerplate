@@ -1,17 +1,20 @@
 import { connect } from 'react-redux';
-import * as actions from '../../actions/BoardActions';
 import NewList from './NewList';
+import * as actions from '../../actions/BoardActions';
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onCreateNewList: (newListTitle) => {
+    onCreateNewList: (newListTitle, callback) => {
       dispatch(
-        actions.createList({
-          board_id: ownProps.boardId,
-          list: {
-            title: newListTitle,
+        actions.createList(
+          {
+            board_id: ownProps.boardId,
+            list: {
+              title: newListTitle,
+            },
           },
-        }),
+          callback,
+        ),
       );
     },
   };

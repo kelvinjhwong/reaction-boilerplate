@@ -4,7 +4,9 @@ import ExistingLists from './ExistingLists';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    lists: state.lists.filter((list) => list.board_id === +ownProps.boardId),
+    lists: state.lists.filter(
+      (list) => list.board_id === Number(ownProps.boardId),
+    ),
   };
 };
 

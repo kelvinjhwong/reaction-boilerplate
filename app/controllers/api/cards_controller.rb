@@ -1,4 +1,8 @@
 class Api::CardsController < ApplicationController
+  def show
+    @card = Card.find(params[:id])
+  end
+
   def update
     begin
       @card = Card.find_by(id: params[:id])
@@ -23,7 +27,7 @@ class Api::CardsController < ApplicationController
 
   def board_params
     params.require(:card)
-      .permit(:list_id, :title, :due_date, 
+      .permit(:list_id, :title, :due_date,
         # :labels => [],
          :description, :position)
   end

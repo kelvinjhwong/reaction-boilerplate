@@ -13,6 +13,9 @@ class Api::CardsController < ApplicationController
       @card.save
     rescue ActiveRecord::RecordNotFound
       render_404
+    rescue ActionController::ParameterMissing
+      @error = "Invalid data provided: must specify a card and at least one attribute to update"
+      render 'api/shared/error', status: :unprocessable_entity
     end
   end
 

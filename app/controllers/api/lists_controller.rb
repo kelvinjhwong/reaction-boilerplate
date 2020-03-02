@@ -28,7 +28,7 @@ class Api::ListsController < ApplicationController
         render :update
       else
         @error = @list.errors.full_messages.join(', ')
-        render 'api/shared/error', status: :unprocessable_entity
+        render 'shared/error', status: :unprocessable_entity
       end
     rescue ActiveRecord::RecordNotFound
       render_404

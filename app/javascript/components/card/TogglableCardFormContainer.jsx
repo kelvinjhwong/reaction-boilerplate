@@ -7,7 +7,6 @@ const mapStateToProps = (state, ownProps) => ( ownProps );
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onAddCard: (newCardTitle, callback) => {
-      console.log("newCardTitle: " + newCardTitle);
       dispatch(
         actions.createCard(
           ownProps.listId,

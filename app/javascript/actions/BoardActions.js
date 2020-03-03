@@ -103,7 +103,6 @@ export const createCardRequest = () => ({
 export const createCard = (listId, card, callback) => {
   return (dispatch) => {
     dispatch(createCardRequest());
-    console.log('BoardActions.js listId: ' + listId);
     apiClient.createCard(listId, card, (newCard) => {
       dispatch(createCardSuccess(newCard));
 

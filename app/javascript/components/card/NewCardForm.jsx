@@ -14,7 +14,7 @@ class NewCardForm extends React.Component {
   handleAddCard = _ => {
     if (this.state.title !== "") {
       this.props.onAddCard(this.state.title, () => this.setState({title: "", }));
-      this.props.onToggleNewCardForm();
+      this.props.onToggleNewCardForm(this.props.listId);
     }
   }
 
@@ -33,7 +33,7 @@ class NewCardForm extends React.Component {
         <div 
           className='add-card-toggle'
           data-position='bottom' 
-          onClick={this.props.onToggleNewCardForm}>
+          onClick={() => { this.props.onToggleNewCardForm(this.props.listId) }}>
           Add a card...
         </div>
       </React.Fragment>

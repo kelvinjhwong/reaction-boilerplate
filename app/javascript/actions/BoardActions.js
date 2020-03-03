@@ -95,3 +95,25 @@ export const updateList = (listId, list, callback) => {
     });
   };
 };
+
+export const createCardRequest = () => ({
+  type: types.CREATE_CARD_REQUEST,
+});
+
+export const createCard = (listId, card, callback) => {
+  return (dispatch) => {
+    dispatch(createCardRequest());
+    apiClient.createCard(listId, card, (newCard) => {
+      dispatch(createCardSuccess(newCard));
+
+      if (callback) {
+        callback(newCard);
+      }
+    });
+  };
+}
+
+export const createCardSuccess = (card) => ({
+  type: types.CREATE_CARD_SUCCESS,
+  card,
+});

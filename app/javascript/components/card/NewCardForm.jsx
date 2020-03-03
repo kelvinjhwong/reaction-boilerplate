@@ -20,7 +20,7 @@ class NewCardForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <div className={this.props.addingCard ? "add-dropdown add-bottom active-card" : "add-dropdown add-bottom"}>
           <div className="card">
             <div className="card-info"></div>
@@ -36,7 +36,7 @@ class NewCardForm extends React.Component {
           onClick={this.props.onToggleNewCardForm}>
           Add a card...
         </div>
-      </div>
+      </React.Fragment>
     )
   };
 };

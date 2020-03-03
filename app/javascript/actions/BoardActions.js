@@ -100,8 +100,21 @@ export const createCardRequest = () => ({
   type: types.CREATE_CARD_REQUEST,
 });
 
-export const createCard = (card, callback) => {
+export const createCard = (listId, card, callback) => {
   return (dispatch) => {
-    dispatch(createCardRequest())
-  }
+    dispatch(createCardRequest());
+    console.log('BoardActions.js listId: ' + listId);
+    apiClient.createCard(listId, card, (newCard) => {
+      dispatch(createCardSuccess(newCard));
+
+      if (callback) {
+        callback(newCard);
+      }
+    });
+  };
 }
+
+export const createCardSuccess = (card) => ({
+  type: types.CREATE_CARD_SUCCESS,
+  card,
+});

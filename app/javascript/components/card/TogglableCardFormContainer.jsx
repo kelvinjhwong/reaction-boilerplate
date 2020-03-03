@@ -1,19 +1,18 @@
 import { connect } from 'react-redux';
-import TogglableCardForm from './TogglableCardForm';
+import NewCardForm from './NewCardForm';
 import * as actions from '../../actions/BoardActions';
 
-const mapStateToProps = (state, ownProps) => ({
-  listId: ownProps.listId,
-});
+const mapStateToProps = (state, ownProps) => ( ownProps );
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onAddCard: (newCard, callback) => {
+    onAddCard: (newCardTitle, callback) => {
+      console.log("newCardTitle: " + newCardTitle);
       dispatch(
         actions.createCard(
           ownProps.listId,
           {
-            title: newListTitle,
+            title: newCardTitle,
           },
           callback,
         ),
@@ -22,4 +21,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TogglableCardForm);
+export default connect(mapStateToProps, mapDispatchToProps)(NewCardForm);

@@ -7,24 +7,46 @@ class NewCardForm extends React.Component {
 
   handleChange = e => {
     this.setState({
-      [e.target.name]: e.target.value
+      title: e.target.value,
     });
   };
 
+  handleAddCard = _ => {
+    if (this.state.title !== "") {
+      this.props.onAddCard(this.state.title, () => this.setState({title: "", }));
+      this.props.onToggleNewCardForm();
+    }
+  }
+
   render() {
     return (
-      <div className="add-dropdown add-bottom active-card">
-        <div className="card">
-          <div className="card-info"></div>
-          <textarea name="add-card" onChange={this.handleChange}>{this.state.title}</textarea><div className="members"></div>
+      <div>
+        <div className={this.props.addingCard ? "add-dropdown add-bottom active-card" : "add-dropdown add-bottom"}>
+          <div className="card">
+            <div className="card-info"></div>
+            <textarea name="add-card" onChange={this.handleChange} value={this.state.title}></textarea><div className="members"></div>
+          </div>
+          <a className="button" onClick={this.handleAddCard}>Add</a><i className="x-icon icon" onClick={this.props.onToggleNewCardForm}></i>
+          <div className="add-options"><span>...</span>
+          </div>
         </div>
-        <a className="button" onClick={this.props.handleAddCard}>Add</a><i className="x-icon icon"></i>
-        <div className="add-options"><span>...</span>
+        <div 
+          className='add-card-toggle'
+          data-position='bottom' 
+          onClick={this.props.onToggleNewCardForm}>
+          Add a card...
         </div>
       </div>
-    );
-  }
+    )
+  };
 };
+
+// ### 1.1.3. New Card Form
+// The new card form is active when the parent `.list-wrapper` has the `add-dropdown-active` class and the `.add-dropdown.add-bottom` element has the `active-card` class.
+
+// Since only one list should have the form active at a time, only one list should  have the `add-dropdown-active` class at a time.
+
+// <textarea name="add-card" onChange={this.handleChange}>{this.state.title}</textarea><div className="members"></div>
 
 /*
 list_id

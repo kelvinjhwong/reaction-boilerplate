@@ -1,6 +1,7 @@
 import React from 'react';
 import CardsContainer from '../card/CardsContainer';
 import ListTitleContainer from './ListTitleContainer';
+import TogglableCardFormContainer from '../card/TogglableCardFormContainer';
 
 const List = (props) => (
   <div className='list-wrapper'>
@@ -32,9 +33,7 @@ const List = (props) => (
             <span>...</span>
           </div>
         </div>
-        <div className='add-card-toggle' data-position='bottom'>
-          Add a card...
-        </div>
+        <TogglableCardFormContainer listId={props.list.id} />
       </div>
     </div>
   </div>

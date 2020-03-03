@@ -10,4 +10,20 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onAddForm: (newListTitle, callback) => {
+      dispatch(
+        actions.updateList(
+          ownProps.listId,
+          {
+            title: newListTitle,
+          },
+          callback,
+        ),
+      );
+    },
+  };
+};
+
 export default connect(mapStateToProps, null)(Cards);

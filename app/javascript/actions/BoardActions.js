@@ -95,3 +95,13 @@ export const updateList = (listId, list, callback) => {
     });
   };
 };
+
+export const createCardRequest = () => ({
+  type: types.CREATE_CARD_REQUEST,
+});
+
+export const createCard = (card, callback) => {
+  return (dispatch) => {
+    dispatch(createCardRequest())
+  }
+}

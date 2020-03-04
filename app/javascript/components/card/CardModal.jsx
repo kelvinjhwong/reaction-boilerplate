@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import EditCardFormContainer from './EditCardFormContainer';
+import { Link } from 'react-router-dom';
 
 class CardModal extends Component {
   componentDidMount() {
@@ -11,7 +12,9 @@ class CardModal extends Component {
       <div id='modal-container'>
         <div className='screen'></div>
         <div id='modal'>
-          <i className='x-icon icon close-modal'></i>
+          <Link to={`/boards/${this.props.card.board_id}`}>
+            <i className='x-icon icon close-modal'></i>
+          </Link>
           <header>
             <i className='card-icon icon .close-modal'></i>
             <textarea

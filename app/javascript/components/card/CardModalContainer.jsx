@@ -1,20 +1,25 @@
 import { connect } from 'react-redux';
 import CardModal from './CardModal';
-import * as actions from '../../actions/CardActions';
+import * as cardActions from '../../actions/CardActions';
+import * as boardActions from '../../actions/BoardActions';
 
 const mapStateToProps = (state, ownProps) => {
+  const cardId = Number(ownProps.match.params.id);
   return {
-    card:
-      state.cards.find(
-        (card) => Number(ownProps.match.params.id) === card.id,
-      ) || {},
+    card: state.cards.find((card) => card.id === cardId) || {},
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
+  const cardId = Number(ownProps.match.params.id);
+
   return {
     onFetchCard: () => {
-      dispatch(actions.fetchCard(Number(ownProps.match.params.id)));
+      dispatch(
+        cardActions.fetchCard(cardId, (card) => {
+          dispatch(boardActions.fetchBoard(card.board_id));
+        }),
+      );
     },
   };
 };

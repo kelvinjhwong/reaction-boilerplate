@@ -10,4 +10,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   //
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditCardForm);
+export default connect(null, null)(EditCardForm);

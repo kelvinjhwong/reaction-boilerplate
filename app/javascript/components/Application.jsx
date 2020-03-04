@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import TopNav from './shared/TopNav';
 import BoardsDashboardContainer from './dashboard/BoardsDashboardContainer';
 import BoardContainer from './board/BoardContainer';

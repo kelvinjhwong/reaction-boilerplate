@@ -1,11 +1,15 @@
 import React from 'react';
 import CardsContainer from '../card/CardsContainer';
 import ListTitleContainer from './ListTitleContainer';
-import TogglableCardFormContainer from '../card/TogglableCardFormContainer';
+import NewCardFormContainer from '../card/NewCardFormContainer';
 
-const List = props => {
+const List = (props) => {
   return (
-    <div className={ props.addingCard ? 'list-wrapper add-dropdown-active' : 'list-wrapper' }>
+    <div
+      className={
+        props.addingCard ? 'list-wrapper add-dropdown-active' : 'list-wrapper'
+      }
+    >
       <div className='list-background'>
         <div className='list'>
           <a className='more-icon sm-icon' href=''></a>
@@ -34,12 +38,15 @@ const List = props => {
               <span>...</span>
             </div>
           </div>
-          <TogglableCardFormContainer listId={props.list.id} onToggleNewCardForm={props.onToggleNewCardForm} addingCard={props.addingCard} />
+          <NewCardFormContainer
+            listId={props.list.id}
+            onToggleNewCardForm={props.onToggleNewCardForm}
+            addingCard={props.addingCard}
+          />
         </div>
       </div>
     </div>
   );
-} 
-
+};
 
 export default List;

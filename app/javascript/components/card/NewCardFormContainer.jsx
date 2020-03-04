@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import NewCardForm from './NewCardForm';
-import * as actions from '../../actions/BoardActions';
+import * as actions from '../../actions/CardActions';
 
-const mapStateToProps = (state, ownProps) => ( ownProps );
+const mapStateToProps = (state, ownProps) => ownProps;
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {

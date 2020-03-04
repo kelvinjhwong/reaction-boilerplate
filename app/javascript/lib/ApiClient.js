@@ -61,7 +61,15 @@ const apiClient = {
 
   createCard: function(listId, card, callback) {
     return axios
-      .post(routes.CREATE_CARD_URL, { "list_id": listId, card })
+      .post(routes.CREATE_CARD_URL, { list_id: listId, card })
+      .then(unwrapData)
+      .then(callback)
+      .catch(logError);
+  },
+
+  fetchCard: function(cardId, callback) {
+    return axios
+      .get(`${routes.CARDS_INDEX_URL}/${cardId}.json`)
       .then(unwrapData)
       .then(callback)
       .catch(logError);

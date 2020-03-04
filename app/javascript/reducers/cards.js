@@ -12,6 +12,18 @@ export default function boards(state = [], action) {
     case 'CREATE_CARD_SUCCESS':
       const newCard = action.card;
       return state.concat(newCard);
+    case 'FETCH_CARD_SUCCESS':
+      if (state.length === 0) {
+        return [action.card];
+      } else {
+        return state.map((card) => {
+          if (card.id === action.card.id) {
+            return action.card;
+          } else {
+            return card;
+          }
+        });
+      }
     default:
       return state;
   }

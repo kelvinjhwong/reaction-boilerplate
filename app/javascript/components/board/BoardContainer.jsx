@@ -15,10 +15,7 @@ const mapStateToProps = (state, ownProps) => {
     const card = state.cards.find((card) => card.id === cardId);
 
     if (card !== undefined) {
-      console.log(card);
       boardId = card.board_id;
-      console.log(boardId);
-      console.log(state);
     }
   }
 

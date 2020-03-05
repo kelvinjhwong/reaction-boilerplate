@@ -8,6 +8,7 @@ class CardModal extends Component {
   }
 
   render() {
+    console.log('in card modal ', this.props.card)
     return (
       <div id='modal-container'>
         <div className='screen'></div>
@@ -15,20 +16,7 @@ class CardModal extends Component {
           <Link to={`/boards/${this.props.card.board_id}`}>
             <i className='x-icon icon close-modal'></i>
           </Link>
-          <header>
-            <i className='card-icon icon .close-modal'></i>
-            <textarea
-              className='list-title'
-              style={{ height: 45 + 'px' }}
-              defaultValue='Cards do many cool things. Click on this card to open it and learn
-              more...'
-            ></textarea>
-            <p>
-              in list <a className='link'>{this.props.card.title}</a>
-              <i className='sub-icon sm-icon'></i>
-            </p>
-          </header>
-          <EditCardFormContainer />
+          { this.props.card.title && this.props.listsExist ? <EditCardFormContainer card={this.props.card}/> : null }
           {/* <!----> */}
           <aside className='modal-buttons'>
             <h2>Add</h2>

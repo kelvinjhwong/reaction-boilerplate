@@ -7,6 +7,7 @@ const mapStateToProps = (state, ownProps) => {
   const cardId = Number(ownProps.match.params.id);
   return {
     card: state.cards.find((card) => card.id === cardId) || {},
+    listsExist: state.lists.length > 0,
   };
 };
 

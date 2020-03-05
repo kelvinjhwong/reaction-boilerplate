@@ -16,7 +16,7 @@ class CardModal extends Component {
           <Link to={`/boards/${this.props.card.board_id}`}>
             <i className='x-icon icon close-modal'></i>
           </Link>
-          { this.props.card.title && this.props.listsExist ? <EditCardFormContainer card={this.props.card}/> : null }
+          { (this.props.card.title && this.props.listsExist) ? <EditCardFormContainer card={this.props.card}/> : null }
           {/* <!----> */}
           <aside className='modal-buttons'>
             <h2>Add</h2>

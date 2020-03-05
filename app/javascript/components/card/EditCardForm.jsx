@@ -20,7 +20,7 @@ import React, { Component } from 'react';
 
 class EditCardForm extends Component {
   state = {
-    card: {},
+    card: this.props.card,
   };
 
   componentDidUpdate(prevProps) {
@@ -30,6 +30,10 @@ class EditCardForm extends Component {
       });
     }
   }
+
+  // handleChange = (e) => {
+
+  // }
 
   render() {
     return (
@@ -52,11 +56,13 @@ class EditCardForm extends Component {
               <ul className='modal-details-list'>
                 <li className='labels-section'>
                   <h3>Labels</h3>
-                  {/* this.state.labels.map((label) => (
-                    <div className='member-container'>
-                      <div className={`${label} label colorblindable`}></div>
-                    </div>
-                  )) */}
+                  { 
+                    this.state.card.labels.map((label) => (
+                      <div className='member-container'>
+                        <div className={`${label} label colorblindable`}></div>
+                      </div>
+                    ))
+                  }
                 </li>
                 <li className='due-date-section'>
                   <h3>Due Date</h3>
@@ -66,7 +72,7 @@ class EditCardForm extends Component {
                       type='checkbox'
                       className='checkbox'
                     />
-                    {this.state.due_date}{' '}
+                    {this.state.card.due_date}{' '}
                     <span>{/* compare due date to current date */}</span>
                   </div>
                 </li>
@@ -77,7 +83,7 @@ class EditCardForm extends Component {
                   className='textarea-toggle'
                   rows='1'
                   autoFocus
-                  value={this.state.description}
+                  value={this.state.card.description}
                 ></textarea>
                 <div>
                   <div className='button' value='Save'>

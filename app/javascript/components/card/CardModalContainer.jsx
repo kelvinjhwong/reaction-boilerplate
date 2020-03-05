@@ -5,9 +5,15 @@ import * as boardActions from '../../actions/BoardActions';
 
 const mapStateToProps = (state, ownProps) => {
   const cardId = Number(ownProps.match.params.id);
+  let list;
+
+  if (ownProps.card !== undefined) {
+    list = state.lists.find((list) => list.id === ownProps.card.list_id);
+  }
+
   return {
     card: state.cards.find((card) => card.id === cardId) || {},
-    listsExist: state.lists.length > 0,
+    listTitle: list === undefined ? '' : list.title,
   };
 };
 

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import CardHeader from './CardHeader';
 import CardLabels from './CardLabels';
 import CardDueDate from './CardDueDate';
+import CardDescription from './CardDescription';
 
 class CardModal extends Component {
   componentDidMount() {
@@ -27,21 +28,7 @@ class CardModal extends Component {
                     <CardLabels {...this.props} />
                     <CardDueDate {...this.props} />
                   </ul>
-                  <form className='description'>
-                    <p>Description</p>
-                    <textarea
-                      className='textarea-toggle'
-                      rows='1'
-                      autoFocus
-                      value={this.props.card.description}
-                    ></textarea>
-                    <div>
-                      <div className='button' value='Save'>
-                        Save
-                      </div>
-                      <i className='x-icon icon'></i>
-                    </div>
-                  </form>
+                  <CardDescription {...this.props} />
                 </li>
                 <li className='comment-section'>
                   <h2 className='comment-icon icon'>Add Comment</h2>

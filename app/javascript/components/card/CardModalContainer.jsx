@@ -30,8 +30,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       );
     },
 
-    onUpdateCard: (cardId, attrs) => {
-      dispatch(cardActions.updateCard(cardId, attrs));
+    onUpdateCard: (cardId, attrs, callback) => {
+      dispatch(cardActions.updateCard(cardId, attrs, callback));
     },
   };
 };

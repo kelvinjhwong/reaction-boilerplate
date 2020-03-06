@@ -49,7 +49,7 @@ export const updateCard = (cardId, attrs, callback) => {
   return (dispatch) => {
     dispatch(updateCardRequest());
     apiClient.updateCard(cardId, attrs, (updatedCard) => {
-      dispatch(updatedCardSuccess(updatedCard));
+      dispatch(updateCardSuccess(updatedCard));
 
       if (callback) {
         callback(updatedCard);

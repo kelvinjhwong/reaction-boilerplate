@@ -12,7 +12,7 @@ class CardHeader extends Component {
   };
 
   handleUpdateTitle = () => {
-    this.props.onUpdateCard(this.props.cardId, {
+    this.props.onUpdateCard(this.props.card.id, {
       title: this.state.title,
     });
   };

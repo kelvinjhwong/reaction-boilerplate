@@ -29,6 +29,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         }),
       );
     },
+
+    onUpdateCard: (cardId, attrs) => {
+      dispatch(cardActions.updateCard(cardId, attrs));
+    },
   };
 };
 

@@ -44,3 +44,25 @@ export const fetchCardSuccess = (card) => ({
   type: types.FETCH_CARD_SUCCESS,
   card,
 });
+
+export const updateCard = (cardId, attrs, callback) => {
+  return (dispatch) => {
+    dispatch(updateCardRequest());
+    apiClient.updateCard(cardId, attrs, (updatedCard) => {
+      dispatch(updatedCardSuccess(updatedCard));
+
+      if (callback) {
+        callback(updatedCard);
+      }
+    });
+  };
+};
+
+export const updateCardRequest = () => ({
+  type: types.UPDATE_CARD_REQUEST,
+});
+
+export const updateCardSuccess = (card) => ({
+  type: types.UPDATE_CARD_SUCCESS,
+  card,
+});

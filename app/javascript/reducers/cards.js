@@ -24,6 +24,14 @@ export default function boards(state = [], action) {
           }
         });
       }
+    case 'UPDATE_CARD_SUCCESS':
+      return state.map((card) => {
+        if (card.id === action.card.id) {
+          return action.card;
+        } else {
+          return card;
+        }
+      });
     default:
       return state;
   }

@@ -30,12 +30,12 @@ class Api::CardsController < ApplicationController
   def update
     @card = Card.find(params[:id])
 
-    params[:list_id] ? @card.list_id = params[:list_id] : nil
-    params[:title] ? @card.title = params[:title] : nil
-    params[:due_date] ? @card.due_date = params[:due_date] : nil
-    params[:labels] ? @card.labels = params[:labels] : nil
-    params[:description] ? @card.description = params[:description] : nil
-    params[:position] ? @card.position = params[:position] : nil
+    update_card_params[:list_id] ? @card.list_id = update_card_params[:list_id] : nil
+    update_card_params[:title] ? @card.title = update_card_params[:title] : nil
+    update_card_params[:due_date] ? @card.due_date = update_card_params[:due_date] : nil
+    update_card_params[:labels] ? @card.labels = update_card_params[:labels] : nil
+    update_card_params[:description] ? @card.description = update_card_params[:description] : nil
+    update_card_params[:position] ? @card.position = update_card_params[:position] : nil
 
     @card.save
   rescue ActiveRecord::RecordNotFound

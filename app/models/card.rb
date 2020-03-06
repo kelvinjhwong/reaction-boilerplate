@@ -5,4 +5,6 @@ class Card < ActiveRecord::Base
   def attributes
     super.merge('board_id' => board_id)
   end
+
+  has_many :comments, dependent: :destroy
 end

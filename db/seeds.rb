@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Board.destroy_all
+Card.destroy_all
 
 board1 = Board.create(title: "First board")
 
@@ -19,3 +20,8 @@ card2 = Card.create(title: "Card 2", list: list1, due_date: Time.now, descriptio
 card3 = Card.create(title: "Card 3", list: list2, due_date: Time.now, description: "this is a cool card")
 card4 = Card.create(title: "Card 4", list: list2, due_date: Time.now, description: "this is a great card")
 card5 = Card.create(title: "Card 5", list: list2, due_date: Time.now, description: "this is a fabulous card")
+
+comment1_1 = Comment.create(text: "Comment for Card 1", card: card1)
+comment1_2 = Comment.create(text: "Another comment for Card 1", card: card1)
+
+comment2_1 = Comment.create(text: "Card 2 also deserves a comment", card: card2)

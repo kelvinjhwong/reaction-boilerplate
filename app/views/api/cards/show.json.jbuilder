@@ -1,7 +1,9 @@
 json.merge! @card.attributes
 
-json.comments_count 0
+json.comments(@card.comments) do |comment|
+  json.merge! comment.attributes
+end
 
-json.comments []
+json.comments_count @card.comments.count
 
 json.actions []

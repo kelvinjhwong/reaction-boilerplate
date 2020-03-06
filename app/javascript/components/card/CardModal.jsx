@@ -5,6 +5,7 @@ import CardHeader from './CardHeader';
 import CardLabels from './CardLabels';
 import CardDueDate from './CardDueDate';
 import CardDescription from './CardDescription';
+import Comment from '../comment/Comment';
 
 class CardModal extends Component {
   componentDidMount() {
@@ -12,7 +13,9 @@ class CardModal extends Component {
   }
 
   render() {
+    console.log('in CardModal', this.props.card);
     if (this.props.card.title && this.props.listTitle) {
+      console.log('actually rendering CardModal', this.props.card);
       return (
         <div id='modal-container'>
           <div className='screen'></div>
@@ -66,43 +69,12 @@ class CardModal extends Component {
                     <li className='not-implemented'>Show Details</li>
                   </ul>
                   <ul className='modal-activity-list'>
-                    <li>
-                      <div className='member-container'>
-                        <div className='card-member'>TP</div>
-                      </div>
-                      <h3>Taylor Peat</h3>
-                      <div className='comment static-comment'>
-                        <span>The activities are not functional.</span>
-                      </div>
-                      <small>
-                        22 minutes ago - <span className='link'>Edit</span> -{' '}
-                        <span className='link'>Delete</span>
-                      </small>
-                      <div className='comment'>
-                        <label>
-                          <textarea
-                            required=''
-                            rows='1'
-                            value='The activities have not been implemented yet.'
-                          ></textarea>
-                          <div>
-                            <a className='light-button card-icon sm-icon'></a>
-                            <a className='light-button smiley-icon sm-icon'></a>
-                            <a className='light-button email-icon sm-icon'></a>
-                          </div>
-                          <div>
-                            <p>You haven't typed anything!</p>
-                            <input
-                              type='submit'
-                              className='button not-implemented'
-                              value='Save'
-                            />
-                            <i className='x-icon icon'></i>
-                          </div>
-                        </label>
-                      </div>
-                    </li>
-                    <li>
+                    {this.props.card.comments_count > 0
+                      ? this.props.card.comments.map((comment) => (
+                          <Comment key={comment.id} comment={comment} />
+                        ))
+                      : null}
+                    {/* <li>
                       <div className='member-container'>
                         <div className='card-member small-size'>VR</div>
                       </div>
@@ -111,8 +83,8 @@ class CardModal extends Component {
                         changed the background of this board{' '}
                         <small>yesterday at 4:53 PM</small>
                       </p>
-                    </li>
-                    <li className='activity-comment'>
+                    </li> */}
+                    {/* <li className='activity-comment'>
                       <div className='member-container'>
                         <div className='card-member'>VR</div>
                       </div>
@@ -129,7 +101,7 @@ class CardModal extends Component {
                           <textarea
                             required=''
                             rows='1'
-                            value='Example of a comment.'
+                            // value='Example of a comment.'
                           ></textarea>
                           <div>
                             <a className='light-button card-icon sm-icon'></a>
@@ -147,7 +119,7 @@ class CardModal extends Component {
                           </div>
                         </label>
                       </div>
-                    </li>
+                    </li> */}
                   </ul>
                 </li>
               </ul>

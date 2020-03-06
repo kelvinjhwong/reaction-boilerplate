@@ -37,7 +37,9 @@ class Api::CardsController < ApplicationController
     update_card_params[:description] ? @card.description = update_card_params[:description] : nil
     update_card_params[:position] ? @card.position = update_card_params[:position] : nil
 
-    @card.save
+    if @card.save
+      render :update
+    end
   rescue ActiveRecord::RecordNotFound
     @error = 'A card cannot be found with this id.'
     render 'shared/error', status: :not_found

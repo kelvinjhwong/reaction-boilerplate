@@ -60,6 +60,17 @@ export default function boards(state = [], action) {
           return card;
         }
       });
+    case 'CREATE_COMMENT_SUCCESS':
+      return state.map((card) => {
+        if (card.id === action.comment.card_id) {
+          return {
+            ...card,
+            comments: [...card.comments, action.comment],
+          };
+        } else {
+          return card;
+        }
+      });
     default:
       return state;
   }

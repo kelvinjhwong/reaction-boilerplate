@@ -82,6 +82,14 @@ const apiClient = {
       .then(callback)
       .catch(logError);
   },
+
+  createComment: (cardId, attrs, callback) => {
+    return axios
+      .post(`${routes.CREATE_COMMENT_URL}`, attrs)
+      .then(unwrapData)
+      .then(callback)
+      .catch(logError);
+  },
 };
 
 export default apiClient;

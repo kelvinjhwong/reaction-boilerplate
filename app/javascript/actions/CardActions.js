@@ -66,3 +66,25 @@ export const updateCardSuccess = (card) => ({
   type: types.UPDATE_CARD_SUCCESS,
   card,
 });
+
+export const createComment = (cardId, attrs, callback) => {
+  return (dispatch) => {
+    dispatch(createCommentRequest());
+    apiClient.createComment(cardId, attrs, (newComment) => {
+      dispatch(createCommentSuccess(newComment));
+
+      if (callback) {
+        callback(newComment);
+      }
+    });
+  };
+};
+
+export const createCommentRequest = () => ({
+  type: types.CREATE_COMMENT_REQUEST,
+});
+
+export const createCommentSuccess = (comment) => ({
+  type: types.CREATE_COMMENT_SUCCESS,
+  comment,
+});

@@ -33,6 +33,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onUpdateCard: (cardId, attrs, callback) => {
       dispatch(cardActions.updateCard(cardId, attrs, callback));
     },
+
+    onCreateComment: (cardId, attrs, callback) => {
+      dispatch(cardActions.createComment(cardId, attrs, callback));
+    },
   };
 };
 

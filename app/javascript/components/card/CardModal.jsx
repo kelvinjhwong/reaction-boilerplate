@@ -6,6 +6,7 @@ import CardLabels from './CardLabels';
 import CardDueDate from './CardDueDate';
 import CardDescription from './CardDescription';
 import Comment from '../comment/Comment';
+import NewCommenmtForm from '../comment/NewCommentForm';
 
 class CardModal extends Component {
   componentDidMount() {
@@ -13,9 +14,7 @@ class CardModal extends Component {
   }
 
   render() {
-    console.log('in CardModal', this.props.card);
     if (this.props.card.title && this.props.listTitle) {
-      console.log('actually rendering CardModal', this.props.card);
       return (
         <div id='modal-container'>
           <div className='screen'></div>
@@ -33,36 +32,7 @@ class CardModal extends Component {
                   </ul>
                   <CardDescription {...this.props} />
                 </li>
-                <li className='comment-section'>
-                  <h2 className='comment-icon icon'>Add Comment</h2>
-                  <div>
-                    <div className='member-container'>
-                      <div className='card-member'>TP</div>
-                    </div>
-                    <div className='comment'>
-                      <label>
-                        <textarea
-                          required=''
-                          rows='1'
-                          placeholder='Write a comment...'
-                        ></textarea>
-                        <div>
-                          <a className='light-button card-icon sm-icon'></a>
-                          <a className='light-button smiley-icon sm-icon'></a>
-                          <a className='light-button email-icon sm-icon'></a>
-                          <a className='light-button attachment-icon sm-icon'></a>
-                        </div>
-                        <div>
-                          <input
-                            type='submit'
-                            className='button not-implemented'
-                            value='Save'
-                          />
-                        </div>
-                      </label>
-                    </div>
-                  </div>
-                </li>
+                <NewCommenmtForm {...this.props} />
                 <li className='activity-section'>
                   <h2 className='activity-icon icon'>Activity</h2>
                   <ul className='horiz-list'>

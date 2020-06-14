@@ -44,6 +44,7 @@ class NewCommenmtForm extends Component {
                 placeholder='Write a comment...'
                 value={this.state.comment}
                 onChange={this.handleChange}
+                required
               ></textarea>
               <div>
                 <a className='light-button card-icon sm-icon'></a>
@@ -56,8 +57,8 @@ class NewCommenmtForm extends Component {
                   type='submit'
                   className={this.state.comment === '' ? 'button not-implemented' : 'button'}
                   value='Save'
-                  disabled={this.state.comment === ''}
                   onClick={this.handleCreateComment}
+                  disabled={this.state.comment === ''}
                 />
               </div>
             </label>

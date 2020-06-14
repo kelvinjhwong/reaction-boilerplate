@@ -7,11 +7,10 @@ const Comment = (props) => (
     </div>
     <h3>Taylor Peat</h3>
     <div className='comment static-comment'>
-      <span>The activities are not functional.</span>
+      <span>{props.comment.text}</span>
     </div>
     <small>
-      22 minutes ago - <span className='link'>Edit</span> -{' '}
-      <span className='link'>Delete</span>
+      22 minutes ago - <span className='link'>Edit</span> - <span className='link'>Delete</span>
     </small>
     <div className='comment'>
       <label>
@@ -27,11 +26,7 @@ const Comment = (props) => (
         </div>
         <div>
           <p>You haven't typed anything!</p>
-          <input
-            type='submit'
-            className='button not-implemented'
-            value='Save'
-          />
+          <input type='submit' className='button not-implemented' value='Save' />
           <i className='x-icon icon'></i>
         </div>
       </label>

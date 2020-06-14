@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 class Card extends Component {
   render() {
+    console.log('card', this.props.card);
     return (
       <div className='card-background'>
         <Link to={`/cards/${this.props.card.id}`}>
@@ -23,7 +24,9 @@ class Card extends Component {
                 {this.props.card.due_date}
               </i>
               <i className='description-icon sm-icon'></i>
-              <i className='comment-icon sm-icon'></i>
+              {this.props.card.comments_count === 0 ? null : (
+                <i className='comment-icon sm-icon'></i>
+              )}
             </div>
           </div>
         </Link>

@@ -6,7 +6,7 @@ import CardLabels from './CardLabels';
 import CardDueDate from './CardDueDate';
 import CardDescription from './CardDescription';
 import Comment from '../comment/Comment';
-import NewCommenmtForm from '../comment/NewCommentForm';
+import NewCommentForm from '../comment/NewCommentForm';
 
 class CardModal extends Component {
   componentDidMount() {
@@ -32,14 +32,14 @@ class CardModal extends Component {
                   </ul>
                   <CardDescription {...this.props} />
                 </li>
-                <NewCommenmtForm {...this.props} />
+                <NewCommentForm {...this.props} />
                 <li className='activity-section'>
                   <h2 className='activity-icon icon'>Activity</h2>
                   <ul className='horiz-list'>
                     <li className='not-implemented'>Show Details</li>
                   </ul>
                   <ul className='modal-activity-list'>
-                    {this.props.card.comments_count > 0
+                    {this.props.card.comments && this.props.card.comments.length > 0
                       ? this.props.card.comments.map((comment) => (
                           <Comment key={comment.id} comment={comment} />
                         ))

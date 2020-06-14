@@ -65,6 +65,7 @@ export default function boards(state = [], action) {
         if (card.id === action.comment.card_id) {
           return {
             ...card,
+            comments_count: card.comments_count + 1,
             comments: [...card.comments, action.comment],
           };
         } else {
